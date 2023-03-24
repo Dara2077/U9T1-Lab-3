@@ -42,4 +42,8 @@ public class Car extends Vehicle {
             discountApplied = true;
         }
     }
+
+    public void setDiscountApplied(boolean discountApplied) {
+        this.discountApplied = discountApplied;
+    }
 }

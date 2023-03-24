@@ -13,13 +13,6 @@ public class Truck extends Vehicle {
     //    and whether it has a trailer.
     //    Add getter methods as necessary to the Vehicle superclass.
 
-    public void printTruck(){
-        System.out.println("License plate: " + getLicensePlate());
-        System.out.println("Toll fee: " + getTollFee());
-        System.out.println("Passengers: " +getPassengers());
-        System.out.println("Number of axles: " +axles);
-        System.out.println("Has trailer: " +hasTrailer);
-    }
 
     public boolean validateLicensePlate(){
         if (hasTrailer){
@@ -41,5 +34,20 @@ public class Truck extends Vehicle {
         else{
             return true;
         }
+    }
+
+    public double calculateTollPrice(){
+        double result = getTollFee() * axles;
+        if (hasTrailer){
+            result *= 2;
+        }
+        return result;
+    }
+
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Axles: " + axles);
+        System.out.println("Has trailer: " + hasTrailer);
     }
 }

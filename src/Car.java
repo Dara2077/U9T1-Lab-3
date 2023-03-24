@@ -8,13 +8,6 @@ public class Car extends Vehicle {
         discountApplied = false;   // default value
     }
 
-    public void printCar(){
-        System.out.println("License plate: " + getLicensePlate());
-        System.out.println("Toll fee: " + getTollFee());
-        System.out.println("Number of passengres: " + getPassengers());
-        System.out.println("Is electric: " + electric);
-        System.out.println("Discount applied: " + discountApplied);
-    }
 
     //getters
 
@@ -22,22 +15,21 @@ public class Car extends Vehicle {
         return electric;
     }
 
-    public boolean isDiscountApplied(){
+    public boolean isDiscountApplied() {
         return discountApplied;
     }
 
-    public boolean dropOffPassengers(int numOut){
-        if (numOut >= getPassengers()){
+    public boolean dropOffPassengers(int numOut) {
+        if (numOut >= getPassengers()) {
             return false;
-        }
-        else{
+        } else {
             setPassengers(getPassengers() - numOut);
             return true;
         }
     }
 
-    public void applyDiscount(){
-        if (!discountApplied && electric){
+    public void applyDiscount() {
+        if (!discountApplied && electric) {
             setTollFee(getTollFee() * .5);
             discountApplied = true;
         }
@@ -45,5 +37,21 @@ public class Car extends Vehicle {
 
     public void setDiscountApplied(boolean discountApplied) {
         this.discountApplied = discountApplied;
+    }
+
+    public double calculateTollPrice(){
+        if (getPassengers() > 4){
+            return getTollFee() * 4;
+        }
+        else{
+            return super.calculateTollPrice();
+        }
+    }
+
+    @Override
+    public void printInfo(){
+        super.printInfo();
+        System.out.println("Electric: " + electric);
+        System.out.println("Discount applied: " + discountApplied);
     }
 }

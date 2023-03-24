@@ -34,4 +34,15 @@ public class Vehicle {
     public void setTollFee(double tollFee) {
         this.tollFee = tollFee;
     }
+
+    public void printInfo(){
+        System.out.println("Licence plate: " + licensePlate);
+        System.out.println("Toll fee: " + tollFee);
+        System.out.println("Passengers: " + passengers);
+    }
+
+    public void printDestinationStatement(){
+        System.out.println("We are on our way to our destination!");
+    }
+
 }
